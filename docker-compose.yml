@@ -1,33 +1,23 @@
-# IRIS MCP Server - Docker Compose
-# Conecta à rede do IRIS para comunicação direta
-#
-# Porta: 3003 (Wazuh=3002, Velociraptor=3001)
-version: '3.8'
 services:
-  iris-mcp-server:
+  iris-mcp:
+    build: .
     container_name: iris-mcp-server
-    image: python:3.13-slim
     restart: unless-stopped
     ports:
       - "127.0.0.1:3003:8000"
-    environment:
-      - IRIS_URL=https://iriswebapp_nginx:8443
-      - IRIS_API_KEY=${IRIS_API_KEY}
-      - IRIS_VERIFY_SSL=false
-    volumes:
-      - ./server.py:/app/server.py:ro
-    working_dir: /app
-    command: >
-      sh -c "pip install --quiet mcp httpx python-dotenv uvicorn starlette &&
-             python server.py --sse"
+    env_file:
+      - .env
     networks:
       - iris_frontend
+      - dfir-network
     healthcheck:
-      test: ["CMD", "python", "-c", "import socket; s=socket.socket(); s.connect(('localhost',8000)); s.close()"]
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/sse')"]
       interval: 30s
       timeout: 10s
       retries: 3
 
 networks:
   iris_frontend:
+    external: true
+  dfir-network:
     external: true
