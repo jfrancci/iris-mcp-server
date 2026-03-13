@@ -147,9 +147,9 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS)
 
 ```
 ┌─────────────────┐     HTTPS/SSE      ┌──────────────────┐     HTTPS API     ┌──────────────┐
-│   Claude AI     │ ──────────────────► │  IRIS MCP Server │ ────────────────► │  DFIR-IRIS   │
-│  (MCP Client)   │ ◄────────────────── │  (FastMCP/Python) │ ◄──────────────── │  (Port 8443) │
-└─────────────────┘                     └──────────────────┘                   └──────────────┘
+│   Claude AI     │ ─────────────────► │  IRIS MCP Server │ ────────────────► │  DFIR-IRIS   │
+│  (MCP Client)   │ ◄───────────────── │  (FastMCP/Python)│ ◄──────────────── │  (Port 8443) │
+└─────────────────┘                    └──────────────────┘                   └──────────────┘
                                                │
                                           Docker Network
                                          (iris_frontend)
@@ -242,4 +242,4 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 ---
 
-**Made with ❤️ by the DFIR-MESI Project**
+**Made by the DFIR-MESI Project**
