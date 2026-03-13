@@ -147,12 +147,12 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS)
 
 ```
 ┌─────────────────┐     HTTPS/SSE      ┌──────────────────┐     HTTPS API     ┌──────────────┐
-│   Claude AI     │ ─────────────────► │  IRIS MCP Server │ ────────────────► │  DFIR-IRIS   │
-│  (MCP Client)   │ ◄───────────────── │  (FastMCP/Python)│ ◄──────────────── │  (Port 8443) │
+│   Claude AI     │ ─────────────────► │ IRIS MCP Server  │ ────────────────► │  DFIR-IRIS   │
+│  (MCP Client)   │ ◄───────────────── │ (FastMCP/Python) │ ◄──────────────── │  (Port 8443) │
 └─────────────────┘                    └──────────────────┘                   └──────────────┘
                                                │
                                           Docker Network
-                                         (iris_frontend)
+                                          (iris_frontend)
 ```
 
 ### Docker Deployment
